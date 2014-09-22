@@ -1,4 +1,0 @@
-romanNumerals
-=============
-
-Roman Numerals Kata
