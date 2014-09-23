@@ -15,7 +15,7 @@ var RomanNumerals = function () {
         1000: "M"
     }
 
-    this.getNumberAsString = function (numberToConvert) {
+    this.getNumberAsRomanNumeral = function (numberToConvert) {
         if (numberToConvert < 1 || numberToConvert > 3999) {
             return this.NUMBER_OUT_OF_BOUNDS;
         }
