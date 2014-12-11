@@ -43,8 +43,8 @@ var RomanNumerals = function() {
 
 	this._isValidRomanNumeral = function(str) {
 		var pattern = '^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$';
-		var res = str.match(pattern);
-		if (res != null) {
+		var validityChecker = str.match(pattern);
+		if (validityChecker != null) {
 			return true;
 		}
 		return false;

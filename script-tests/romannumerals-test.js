@@ -77,6 +77,13 @@ describe("Roman Numerals Tests", function() {
 			expect(romanNumerals.parseString("MCKVII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
 		})
 
+		it("handles upper and lower case inputs", function(){
+			expect(romanNumerals.parseString("iii")).toBe(3);
+			expect(romanNumerals.parseString("III")).toBe(3);
+			expect(romanNumerals.parseString("cM")).toBe(900);
+			expect(romanNumerals.parseString("kvII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
+		})
+
 		it("is able to convert simple numerals to integers", function() {
 			expect(romanNumerals.parseString("I")).toEqual(1);
 			expect(romanNumerals.parseString("II")).toEqual(2);
@@ -89,6 +96,7 @@ describe("Roman Numerals Tests", function() {
 			expect(romanNumerals.parseString("IX")).toEqual(9);
 			expect(romanNumerals.parseString("MCMIII")).toEqual(1903);
 			expect(romanNumerals.parseString("MMMLII")).toEqual(3052);
+			expect(romanNumerals.parseString("CMXL")).toEqual(940);
 		})
 	})
 
