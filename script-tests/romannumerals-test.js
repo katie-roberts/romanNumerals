@@ -1,19 +1,19 @@
 describe("Roman Numerals Tests", function() {
 
-	var romanNumerals;
+	var romanNumerals = require("./script/romannumerals.js");
 
-	beforeEach(function() {
-
-		romanNumerals = new RomanNumerals();
-	});
+//	beforeEach(function() {
+//
+//		romanNumerals = new RomanNumerals();
+//	});
 
 	describe("Sets the bounding limits", function() {
 		it("does not accept numbers over 3999", function() {
-			expect(romanNumerals.generate(4000)).toBe(romanNumerals.NUMBER_OUT_OF_BOUNDS);
+			expect(romanNumerals.generate(4000)).toBe("Number must be less than 4000");
 		});
 
 		it("does not accept numbers below 0", function() {
-			expect(romanNumerals.generate(0)).toBe(romanNumerals.NUMBER_OUT_OF_BOUNDS);
+			expect(romanNumerals.generate(0)).toBe("Number must be less than 4000");
 		});
 	});
 
@@ -73,16 +73,16 @@ describe("Roman Numerals Tests", function() {
 
 	describe("It takes a string and if valid converts to integer", function() {
 		it("checks that the given string is a valid Roman Numberal", function() {
-			expect(romanNumerals.parseString("KVII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
-			expect(romanNumerals.parseString("MCKVII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
-			expect(romanNumerals.parseString("MMMM")).toBe(romanNumerals.NUMBER_OUT_OF_BOUNDS);
+			expect(romanNumerals.parseString("KVII")).toBe("Not valid Roman Numeral");
+			expect(romanNumerals.parseString("MCKVII")).toBe("Not valid Roman Numeral");
+			expect(romanNumerals.parseString("MMMM")).toBe("Number must be less than 4000");
 		})
 
 		it("handles upper and lower case inputs", function(){
 			expect(romanNumerals.parseString("iii")).toBe(3);
 			expect(romanNumerals.parseString("III")).toBe(3);
 			expect(romanNumerals.parseString("cM")).toBe(900);
-			expect(romanNumerals.parseString("kvII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
+			expect(romanNumerals.parseString("kvII")).toBe("Not valid Roman Numeral");
 		})
 
 		it("is able to convert simple numerals to integers", function() {

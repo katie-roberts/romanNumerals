@@ -3,7 +3,7 @@ var http = require('http'),
 	form = require('fs'),
 	url = require('url'),
 	queryString = require('querystring');
-	romanNumeral = require('./script/romannumerals.js');
+	parseItem = require('./script/parsegivenitem.js');
 
 var server = http.createServer(function(req, res) {
 
@@ -17,7 +17,6 @@ var server = http.createServer(function(req, res) {
 		req.on('end', function() {
 			var POST = queryString.parse(body);
 			var results = "";
-//			res.end("Sent data is int:" + POST.integer + " numeral:" + POST.numeral);
 			results = results + generateScreenOutput("integer entered ", POST.integer) + "\n" + generateScreenOutput("numeral entered", POST.numeral);
 			res.end(results);
 		});
@@ -49,7 +48,8 @@ function getDataFromQueryStringParam (res, url_parts) {
 }
 
 function generateScreenOutput(type, item){
-	return(type+ " "+ item + " which converts to : " + romanNumeral.parseGivenItem(item));
+	console.log("item :: " +parseItem.parsegivenitem);
+	return(type+ " "+ item + " which converts to : " + parseItem.parsegivenitem(item));
 
 }
 server.listen(8080);
