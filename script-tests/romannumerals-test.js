@@ -75,6 +75,7 @@ describe("Roman Numerals Tests", function() {
 		it("checks that the given string is a valid Roman Numberal", function() {
 			expect(romanNumerals.parseString("KVII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
 			expect(romanNumerals.parseString("MCKVII")).toBe(romanNumerals.NOT_VALID_ROMAN_NUMERAL);
+			expect(romanNumerals.parseString("MMMM")).toBe(romanNumerals.NUMBER_OUT_OF_BOUNDS);
 		})
 
 		it("handles upper and lower case inputs", function(){

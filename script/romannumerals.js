@@ -1,9 +1,7 @@
-/**
- * Roman Numerals Kata
- */
-var RomanNumerals = function() {
 
-	this.NUMBER_OUT_OF_BOUNDS = "Number out of bounds";
+//var RomanNumerals = function () {
+// 	"use-strict";
+	this.NUMBER_OUT_OF_BOUNDS = "Number must be less than 4000";
 	this.NOT_VALID_ROMAN_NUMERAL = "Not valid Roman Numeral";
 
 	this.romanNumerals = {
@@ -37,6 +35,9 @@ var RomanNumerals = function() {
 		if (this._isValidRomanNumeral(numeralToConvert)) {
 			return this._convertNumeralToInt(numeralToConvert);
 		} else {
+			if (numeralToConvert.match('^M{4}')){
+				return this.NUMBER_OUT_OF_BOUNDS;
+			}
 			return this.NOT_VALID_ROMAN_NUMERAL;
 		}
 	}
@@ -141,5 +142,15 @@ var RomanNumerals = function() {
 				}
 		}
 	}
-};
+//};
+
+function parseGivenItem(item){
+	if (isNaN(item)) {
+		return this.parseString(item);
+	} else {
+		return this.generate(item);
+	}
+}
+
+module.exports.parseGivenItem = parseGivenItem;
 
