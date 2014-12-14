@@ -3,7 +3,7 @@ var http = require('http'),
 	form = require('fs'),
 	url = require('url'),
 	queryString = require('querystring');
-	parseItem = require('./script/parsegivenitem.js');
+	parseItem = require('./script/parseitem.js');
 
 var server = http.createServer(function(req, res) {
 
