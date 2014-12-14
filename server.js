@@ -3,8 +3,8 @@ var http = require("http"),
 	form = require("fs"),
 	url = require("url"),
 	express = require("express"),
-	queryString = require("querystring");
-parseItem = require("./script/parseitem.js");
+	queryString = require("querystring"),
+	parseItem = require("./script/parseitem.js");
 
 var server = express();
 
