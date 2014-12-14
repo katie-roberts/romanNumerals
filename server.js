@@ -16,9 +16,7 @@ var server = http.createServer(function(req, res) {
 		});
 		req.on('end', function() {
 			var POST = queryString.parse(body);
-			var results = "";
-			results = results + generateScreenOutput("integer entered ", POST.integer) + "\n" + generateScreenOutput("numeral entered", POST.numeral);
-			res.end(results);
+			res.end(generateScreenOutput("integer entered ", POST.integer) + "\n" + generateScreenOutput("numeral entered", POST.numeral));
 		});
 
 
@@ -26,12 +24,12 @@ var server = http.createServer(function(req, res) {
 		req.on('data', function(data) {
 			res.end(' data event: ' + data);
 		});
-		if (url_parts.pathname == '/')
+		if (url_parts.pathname == '/'){
 			form.readFile('./form.html', function(error, data) {
 				res.end(data);
 			});
-
-		else if (url_parts.pathname == '/getData') {
+		}
+		if (url_parts.pathname == '/query') {
 			getDataFromQueryStringParam(res, url_parts);
 		}
 	}
@@ -48,9 +46,7 @@ function getDataFromQueryStringParam (res, url_parts) {
 }
 
 function generateScreenOutput(type, item){
-	console.log("item :: " +parseItem.parsegivenitem);
 	return(type+ " "+ item + " which converts to : " + parseItem.parsegivenitem(item));
 
 }
 server.listen(8080);
-console.log('Server listenning at localhost:8080');
