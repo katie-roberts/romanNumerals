@@ -1,11 +1,10 @@
 describe("Roman Numerals Tests", function() {
 
-	var romanNumerals = require("./script/romannumerals.js");
+	var romanNumerals;
 
-//	beforeEach(function() {
-//
-//		romanNumerals = new RomanNumerals();
-//	});
+	beforeEach(function() {
+		romanNumerals = new RomanNumerals();
+	});
 
 	describe("Sets the bounding limits", function() {
 		it("does not accept numbers over 3999", function() {

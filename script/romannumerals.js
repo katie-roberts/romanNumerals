@@ -1,6 +1,5 @@
-//module.exports = {
-//	RomanNumerals: function() {
-// 	"use-strict";
+var	RomanNumerals = function() {
+ 	"use-strict";
 		this.NUMBER_OUT_OF_BOUNDS = "Number must be less than 4000";
 		this.NOT_VALID_ROMAN_NUMERAL = "Not valid Roman Numeral";
 
@@ -14,7 +13,7 @@
 			1000: "M"
 		}
 
-		exports.generate = function(numberToConvert) { // int to romanNumeral
+		this.generate = function(numberToConvert) { // int to romanNumeral
 			if (numberToConvert < 1 || numberToConvert > 3999) {
 				return this.NUMBER_OUT_OF_BOUNDS;
 			}
@@ -30,7 +29,7 @@
 			return numeralsString;
 		}
 
-		exports.parseString = function(numeralToConvert) {
+		this.parseString = function(numeralToConvert) {
 			numeralToConvert = numeralToConvert.toUpperCase()
 			if (this._isValidRomanNumeral(numeralToConvert)) {
 				return this._convertNumeralToInt(numeralToConvert);
@@ -141,17 +140,8 @@
 						return returnString;
 					}
 			}
-		//}
-	//}
+	}
 }
-//
-//exports.parseGivenItem = function (item) {
-//	if (isNaN(item)) {
-//		return this.parseString(item);
-//	} else {
-//		return this.generate(item);
-//	}
-//}
 
-//module.exports.parseGivenItem = parseGivenItem;
+module.exports = RomanNumerals;
 
