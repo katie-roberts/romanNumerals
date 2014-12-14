@@ -15,7 +15,7 @@ server.post("/formEntry", function(req, res) {
 	})
 	req.on("end", function() {
 		var POST = queryString.parse(body);
-		res.end(generateScreenOutput("integer entered ", POST.integer) + "\n" + generateScreenOutput("numeral entered", POST.numeral));
+		res.end(generateScreenOutput(POST.integer) + "\n" + generateScreenOutput(POST.numeral));
 	});
 });
 
@@ -30,20 +30,24 @@ server.get("/query", function(req, res) {
 	getDataFromQueryStringParam(res, url_parts);
 });
 
+server.get("/numeral", function(req, res) {
+	res.end("you need to add a value to the end of that url");
+});
+
 server.get("/numeral/:value", function(req, res) {
-	res.end(generateScreenOutput("You entered", req.params.value));
+	res.end(generateScreenOutput(req.params.value));
 });
 
 function getDataFromQueryStringParam (res, url_parts) {
 	var results = "";
 	if (url_parts.query.numeral) {
-		res.end(generateScreenOutput("You entered", url_parts.query.numeral));
+		res.end(generateScreenOutput(url_parts.query.numeral));
 	}
 	res.end(results);
 }
 
-function generateScreenOutput (type, item) {
-	return(type + " " + item + " which converts to : " + parseItem.parsegivenitem(item));
+function generateScreenOutput (item) {
+	return("You entered " + item + " which converts to : " + parseItem.parsegivenitem(item));
 
 }
 server.listen(8080);
